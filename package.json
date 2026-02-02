@@ -1,10 +1,9 @@
 {
   "name": "server",
   "packageManager": "yarn@4.11.0",
-  "type": "module",
   "scripts": {
     "dev": "tsx watch ./src/server.ts",
-    "build": "tsc",
+    "build": "tsc && tsc-alias",
     "start": "node ./dist/server.js"
   },
   "dependencies": {
@@ -29,5 +28,12 @@
     "tsconfig-paths": "^4.2.0",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
+  },
+  "imports": {
+    "#controllers/*": "./dist/controllers/*.js",
+    "#models/*": "./dist/models/*.js",
+    "#routes/*": "./dist/routes/*.js",
+    "#utils/*": "./dist/utils/*.js",
+    "#config/*": "./dist/config/*.js"
   }
 }
