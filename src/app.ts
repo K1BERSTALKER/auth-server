@@ -6,7 +6,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://auth-client-k1berstalkers-projects.vercel.app",
+    origin: "https://auth-client-i6s5z6q22-k1berstalkers-projects.vercel.app",
     credentials: true,
   }),
 );
