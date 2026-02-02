@@ -1,6 +1,6 @@
 {
   "name": "server",
-  "packageManager": "yarn@4.11.0",
+  "packageManager": "yarn@1.22.22",
   "scripts": {
     "dev": "tsx watch ./src/server.ts",
     "build": "tsc && tsc-alias",
