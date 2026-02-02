@@ -4,9 +4,21 @@ import authRoutes from "@routes/authRoutes";
 
 const app = express();
 
+const allowedOrigins = [
+  "https://auth-client-i6s5z6q22-k1berstalkers-projects.vercel.app",
+  "https://auth-client-git-main-k1berstalkers-projects.vercel.app",
+];
+
 app.use(
   cors({
-    origin: "https://auth-client-i6s5z6q22-k1berstalkers-projects.vercel.app",
+    origin: (origin, callback) => {
+      if (!origin) return callback(null, true); // allow Postman, server-to-server requests
+      if (allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("CORS not allowed"));
+      }
+    },
     credentials: true,
   }),
 );
